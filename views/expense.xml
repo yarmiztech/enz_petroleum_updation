@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="petroleum_expense_main"
+              name="Expense"
+              parent="enz_petroleum.petrol_pump"
+              sequence="4"/>
+
+    <menuitem id="petroleum_expense"
+              name="Expense"
+              parent="petroleum_expense_main"
+              sequence="1" action="hr_expense.hr_expense_actions_my_unsubmitted"/>
+</odoo>

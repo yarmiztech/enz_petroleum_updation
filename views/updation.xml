@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="internalsale_formlines" model="ir.ui.view">
+        <field name="name">internal.vehicle.sale.form</field>
+        <field name="model">internal.vehicle.sale.form</field>
+        <field name="inherit_id" ref="enz_petroleum.internal_sale_entry_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_lines']" position='attributes'>
+                    <attribute name="context">{'default_date': date}</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="form_branch_oilsaleform" model="ir.ui.view">
+        <field name="name">oil.sale.form</field>
+        <field name="model">oil.sale</field>
+        <field name="inherit_id" ref="enz_petroleum.oil_sale_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_lines']" position='attributes'>
+                    <attribute name="context">{'default_date':date}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="form_purchase_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_confirm']" position='after'>
+                <button name="purchase_validate" string="Automaitic Validate" confirm="Do We Need To Complete All Procces In one Step" type="object" class="btn-primary" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
